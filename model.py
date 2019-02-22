@@ -13,3 +13,9 @@ import featuretools as ft
 from sklearn.linear_model import LogisticRegression
 from datetime import datetime
 %matplotlib inline
+
+pd.set_option("display.max_rows", 200)
+pd.set_option('display.max_columns', 200)
+pd.set_option('use_inf_as_na', True)
+
+parent_dir = str(Path.cwd())
