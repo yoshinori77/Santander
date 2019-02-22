@@ -19,3 +19,14 @@ pd.set_option('display.max_columns', 200)
 pd.set_option('use_inf_as_na', True)
 
 parent_dir = str(Path.cwd())
+
+df = pd.read_csv(parent_dir + '/input/train.csv')
+test_df = pd.read_csv(parent_dir + '/input/test.csv')
+
+df.shape
+test_df.shape
+df.columns
+df.select_dtypes(include='object')
+
+sns.pairplot(df.iloc[:, :10], hue='target', plot_kws={'alpha': 0.2})
+df.groupby('target').describe()
