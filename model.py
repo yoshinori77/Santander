@@ -47,3 +47,14 @@ roc_auc_score(y_val, y_pred)
 accuracy_score(y_val, y_pred)
 print(classification_report(y_val, y_pred))
 confusion_matrix(y_val, y_pred)
+
+
+log_dict = {'model': model, 'columns': X_train.columns,
+            'roc_auc_score': roc_auc_score(y_val, y_pred),
+            'accuracy_score': accuracy_score(y_val, y_pred),
+            'classification_report': classification_report(y_val, y_pred),
+            'confusion_matrix': confusion_matrix(y_val, y_pred)}
+now = datetime.now().strftime('%Y_%m_%d_%H:%M:%S')
+
+with open(parent_dir + '/output/log_' + now + '.pkl', mode='wb') as f:
+    pickle.dump(log_dict, f)
